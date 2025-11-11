@@ -1,0 +1,359 @@
+0:02 - Speaker-1
+A ver, ya estamos. El objetivo de esto es para revisar la diapositiva externa y mirar las diapositivas y empezar a recordar lo que habíamos planteado en su momento, solamente como un refresh, viendo y recordando el nombre que le dimos a cada componente o objeto que habíamos pensado modelar. Correcto. Entonces, no vamos a hablar del test. En esta diapositiva varias cosas colocadas, por ejemplo, tenemos... Todavía no estás compartiendo por si acaso. Ah, perdón. Mira, en la diapositiva que tengo en pantalla tenemos varias cosas representadas. Estamos heredando lo de AppManager, que tenemos lo de sitio, estructura, nivel, subestructura, contenedor, y el contenedor tiene ODF, donde el ODF es una versión equivalente o un componente equivalente al network element. De hecho, un ODF es un network element.
+
+1:10 - Speaker-2
+Es un network element, exacto.
+
+1:12 - Speaker-1
+Que tiene las mismas características de un network element, donde es slots. Correcto. Un ODF tiene un chasis, o sea, un chasis o shelf, Ese chasis o shelf tiene huecos. Esos huecos reciben bandejas. Esas bandejas tienen puertos. Correcto. Entonces estamos en una equivalencia uno a uno con el modelo de AppManager. La fundamental diferencia es que el network element de AppManager necesita energía para activarse y el ODF no la necesita. Correcto. Luego, tanto para el network element activo como para el network element pasivo, donde el ODF es un network element pasivo, se necesitan conexiones, conectarle cables físicos. Y tendríamos que un ODF interconecta un equipo, interconecta dos equipos, tal como estamos. Y el ODF, la operación que interconecta dos equipos, le denominamos patcheo.
+
+2:19 - Speaker-1
+Patcheo, sí.
+
+2:20 - Speaker-1
+Correcto. Entonces, luego de ese patcheo, tenemos un FOLink. Ese FOLink nos lleva hasta otro DF donde se realiza otra operación de patcheo. Sí, correcto. Esa operación de patcheo nos conecta con el equipo en destino. Entonces, tenemos equipo en origen A que conecta con un cable equipo en origen A con ODFA, la operación de pacheo conecta el cable que viene del equipo de origen A con el link de planta externa que nos lleva hasta el sitio B donde tenemos una operación de pacheo en el ODFB y desde el ODFB tenemos el cable que va hasta el elemento de reta Correcto. Debemos establecer una diferencia entre una operación de conexión física y una operación de pacheo físico. ¿Por qué? Te digo, porque la operación de conexión es simplemente cable contrapuerto. Correcto. Pero la operación de pacheo es la operación de un cable contra un cable.
+
+3:47 - Speaker-2
+Sí, correcto. De unir dos cables.
+
+3:50 - Speaker-2
+De pigtail contra el...
+
+3:52 - Speaker-2
+Claro, contra el patchcord que estaba conectando el equipo final.
+
+3:58 - Speaker-1
+Sí, correcto. Hay una diferencia entre una operación de conexión física, que es cable o conector contra puerto en equipo. Correcto. Y el registro de la conexión de cable y su conector enfrentado con otro cable y su conector, se denomina patcheo, operación de patcheo. Sí, correcto. Entonces luego el FOLink es la abstracción de todo lo que hay en la planta externa para conectar el puerto en modo EFA. Con el puerto en el ODFB.
+
+4:41 - Speaker-2
+Correcto, sí. Aclarando, ¿no?
+
+4:43 - Speaker-1
+El puerto línea de ODFA con el puerto línea de ODFB. Como tenemos en los ODF tenemos un puerto que mira hacia adentro y un puerto que mira hacia afuera. Claro. Al que mira hacia afuera le vamos a decir puerto línea y al que mira hacia adentro le vamos a decir puerto cliente. Correcto. La operación de patcheo en A y en B nos ha permitido conectar el equipo activo en A a la planta externa. Y esa conexión a la planta externa se representa por la abstracción que es el Physical FO Link. Correcto. Entonces, abajo de eso tenemos otro poco de objetos, diríamos.
+
+5:35 - Speaker-2
+Sí, correcto.
+
+5:36 - Speaker-1
+Entonces vamos ahora a ver esos objetos. Como esos objetos tenemos que hay un span, que es la distancia física entre el punto A o el sitio A y el sitio B. Donde sitio A aloja al ODF A y al elemento de El sitio B aloja a lo de FB y al elemento activo B. Correcto, sí. Entonces, sobre ese span, que es la distancia física directa, hay un path, hay un camino, que es el trazado de la fibra óptica. Y es solamente el trazado. Sí, correcto, solo el trazado. Ese trazado se va a implementar por medio de otro tipo de infraestructura, que va a ser trench o va a ser aéreo.
+
+6:55 - Speaker-2
+Claro.
+
+6:56 - Speaker-1
+Luego, Asociado al tipo de infraestructura trench están las manholes, las cámaras subterráneas manhole. Asociado al tipo de detendido aéreo están otro tipo de estructuras que son los postes o poles, P-O-L en inglés. El path está directamente asociado con el tipo de infraestructura sobre el cual se va a trazar ese path. Correcto, sí. Un path puede estar trazado para reunir infraestructura de tipo trench, de tipo pole, de tipo manhole o recamara. Y toda esa estructura es simplemente descrita por el path, donde el path representa el camino a seguir para llegar de un punto A a un punto B utilizando un determinado grupo de infraestructura.
+
+8:14 - Unidentified Speaker
+Correcto.
+
+8:14 - Speaker-1
+¿Te suena esto ahí? Sí. Ok. Luego, entonces, pasamos y seguimos con los hablando de la infraestructura. Entonces, el ODF se entiende que está dentro de un site. Específicamente, al estar dentro de un site, se sobreentiende que está dentro de una sala, que está en un nivel, que está en una estructura, donde la misma sala o la propia sala es un tipo de subestructura Sí. Y dentro de esa sala, que es una subestructura, hay una subdivisión que es a nivel de filas y columnas y la intersección de fila con columna nos da un punto y en ese punto se ubica el contenedor o container que a su vez aloja al ODF, el que ya dijimos que es un tipo de elemento de red. Correcto. Entonces, sabiendo eso, El ODF que está, por ejemplo, dentro de una estructura número uno, dentro del sitio número uno, va a conectarse con otro elemento de red que puede ser otro tipo de ODF que se va a encontrar dentro de otro tipo de subestructura que va a ser la cámara. Correcto. Entonces, en esta cámara que ya dijimos contiene un ODF que sigue la misma regla de tener un contenedor o soporte, en este ODF se van a terminar tables de fibra óptica que contienen strands o hilos de fibra óptica. Este cable de fibra óptica es lo que se va a rutear siguiendo el path seleccionado. Ese path ya dijimos que es un conjunto de infraestructura compuesto por otros manholes, otros postes o poles y otras trench. Luego las trench tienen sub-trench, los sub-trench tienen ductos y los ductos alojan a los cables. Cuando hablamos de aéreo, de tendido aéreo, el tendido aéreo se define entre dos poles y esos poles tienen niveles. Correcto. Donde entre Paul y Paul no existe una estructura tal como la Trench, pero se asume algo similar a una Trench invisible y sobre esa Trench invisible se tienen los niveles. Los niveles si tienen una asociación o una equivalencia directa con el SubTrench.
+
+11:48 - Unidentified Speaker
+Correcto, sí.
+
+11:49 - Speaker-2
+Con el SubTrench inducto, ¿no?
+
+11:52 - Speaker-1
+Sí. Entonces, si cogemos el ODF que está en la sala, que está dentro de la estructura, lo conectamos con el ODF que está en la recámara o manhole dentro del mismo sitio, de ahí debemos escoger un path que nos va a llevar hasta el sitio destino donde ese path nos puede llevar atravesando un tendido aéreo soportado en poles por un determinado nivel definido entre esos poles, por una ruta de trenches, subtrenches y ductos, o por una combinación de ambas. Correcto. Sí, y eso solamente nos. Está hablando de la infraestructura. Que vamos a utilizar para pasar un cable correcto. Entonces tenemos un Paz aéreo. Que tiene sus propias características, como ya dijimos, en ese Paz aéreo seleccionados, seleccionaremos un nivel cuando se trata de aéreo y por ahí. Colocaremos el cable o seleccionaremos un ducto que está dentro de una trench. Correcto. Y por ahí pasaremos el cable. Podemos utilizar una combinación de path aéreo, path trench. Correcto, sí. Para pasar los cables y cuando los cables se pasan, los cables se pueden conectar con otros cables de manera permanente por una operación que se llama Splice. El Splice Event, correcto. El Splice Event. Entonces, ese Splice Event tiene una característica fundamental que es algo, digamos, permanente o fijo. Y el Patch Event, o el patcheo es algo mutable. El patch event lo tienes que romper para poder cambiarlo. Y a la operación de patcheo no la tienes que romper, la puedes cambiar. Ya, claro. Sí, sí, sí.
+
+14:17 - Speaker-1
+Porque el splice es de pelo a pelo.
+
+14:21 - Speaker-2
+Claro, el splice es de pelo a pelo.
+
+14:25 - Speaker-1
+de strand a strand.
+
+14:27 - Speaker-2
+Sí, de strand a strand, correcto. Y si es contra un cord, el cord necesariamente es un pigtail.
+
+14:35 - Speaker-1
+Exactamente. Cuando vas pelo, para poder ponerle un conector a un strand, pelo de fibra óptica que está dentro de un cable, necesariamente se usa un pigtail.
+
+14:48 - Speaker-2
+Correcto. Y se hace un splice.
+
+14:50 - Speaker-1
+Y se hace un splice sí luego tenemos el paso de los cables por diferentes trenches como ya dijimos los trenches pueden tener subtrenches las subtrenches pueden pueden tener ductos y los ductos pueden tener subductos o una combinación de todas las anteriores. Puede ser un trench que no tiene subtrench, que tiene un ducto y punto. Puede ser un trench que tiene un ducto, que tiene subductos y recién en el subducto va el cable. Correcto.
+
+15:40 - Speaker-2
+En cuyo caso el parámetro level, que es el level que hablamos para el aéreo, donde en el aéreo considera el espacio un trench sería el equivalente al subtrench.
+
+15:54 - Speaker-1
+Ajá. Al final, digamos, la línea imaginaria que une un poste con otro es el equivalente al trench. Exacto.
+
+16:07 - Speaker-2
+Y así como el trench puede dividirse en lo que estamos denominando subtrench, en el aéreo estamos hablando de niveles. Exacto. De los niveles. Entonces el nivel y el subtrench también son equivalentes. Claro.
+
+16:28 - Speaker-1
+Luego, en el tendido de infraestructura trench tenemos un elemento asociado que es el manhole o recámara. En la estructura de tendido aéreo, tenemos un elemento equivalente que es la mufa. Dentro de los manhole o recámara van a estar las bandejas de fusión, soportadas en un 1DF, que están sostenidas o montadas en en un rack o cabinet dentro de la recámara o manhole. En el caso del tendido aéreo, tenemos un componente llamado mufa, que no es otra cosa que una versión reducida de todo lo que está dentro de la recámara, y donde lo que está dentro de la recámara es un container, que tiene un ODF, que tiene bandejas, que tiene soportes para fusión. Todo eso está condensado dentro de una mufa y la mufa está colocada, fijada en algún nivel en un pol. Correcto.
+
+18:02 - Speaker-1
+En un pol oposte.
+
+18:05 - Unidentified Speaker
+Entonces.
+
+18:06 - Speaker-1
+Para ahora hablar de las operaciones y aclarar un poco, tal como tú dijiste, los cables tienen pelos y para poder terminar un pelo debemos fusionarlo con un PICT.
+
+18:21 - Unidentified Speaker
+Correcto.
+
+18:22 - Speaker-1
+Habiendo terminado un pelo estamos en condición de reflejarlo en un ODF. El hecho de reflejarlo en un seleccionar un puerto en una bandeja en un Shelf ODF y colocarlo para que el conector del Pigtail sea soportado y que esté conectado a este puerto que está en una bandeja, que esté en un ODF, que está en alguna substitución ya sea de tipo cámara o manhole o de tipo sala, por ejemplo.
+
+19:07 - Unidentified Speaker
+Correcto.
+
+19:08 - Speaker-1
+Luego, para enfrentar un cable de fibra terminado con otro cable de fibra terminado o con un patch core para conexión directa a un equipo, a un network element activo, tenemos la operación, el evento de patcheo. Correcto. Para conectar dos pelos de fibra que pertenecen a dos cables, a dos cables o al mismo cable, se hace un evento splice.
+
+19:46 - Speaker-2
+Un evento splice, correcto.
+
+19:48 - Speaker-1
+Como ya dijimos, el evento splice es algo fijo, para desconectarlo, para desconectar el cable A del cable B que están unidos por el evento Splice, hace falta romper el Splice. En el caso de un pacheo, para desvincular el patch cord o cable terminado, o pelo de fibra óptica terminado de otro pelo de fibra óptica terminado, tenemos que desconectar. Entonces la desconexión equivale a la ruptura del Splice. La desconexión del patcheo equivale a la ruptura del Splice. Entonces, podemos decir que Un patcheo es la unión de dos conectores también, donde los conectores representan sea un cable terminado o un patch core conectando un equipo y que un reflejo es simplemente dejar un cable terminado posicionado dentro de un ODF. Un cable terminado, ya sabemos que puede ser un strand de fibra óptica al que se le ha fusionado un pigtail y que va a quedar en su portado conectado vamos a decir que el reflejo es lo que estamos soportando cables o posicionando cables porque luego cuando estamos conectando es que estamos enfrentando un conector contra otro para unir dos cables correcto luego de eso Tenemos. Ok, habíamos dicho que teníamos segmentos. Los segmentos son una línea imaginaria que se traza entre dos infraestructuras o dos estructuras, dos estructuras, dos estructuras. Asociadas a planta externa.
+
+22:11 - Unidentified Speaker
+Sí, correcto.
+
+22:12 - Speaker-1
+Las combinaciones para poder establecer un segmento son de manhole a manhole o de manhole a poste o de poste a poste. Correcto. Y ahí simplemente tenemos un segmento.
+
+22:31 - Unidentified Speaker
+Sí.
+
+22:32 - Speaker-1
+Y entonces el PATH acabaría siendo una colección de segmentos. Correcto, sí. Y un segmento va a tener tipos, que puede ser un segmento tipo trench o tipo aéreo. Decir que un segmento es de tipo trench significa que ha sido implementado utilizando estructuras de tipo trench. Correcto.
+
+23:08 - Speaker-2
+Ahora, no nos olvidemos de una cosa muy importante que era un escenario bastante peruano que habíamos pensado. Que es que, no necesariamente porque... O sea, el segmento es la línea imaginaria, ¿no? Es una línea imaginaria que va de estructura a estructura. El path es el seguimiento de esa línea. Entonces se daban casos en los que un cable, por ejemplo, en algún momento lo conversamos, estaba amarrado a un lugar y por ende giraba. No necesariamente había pasado por la estructura, sino que estaba utilizando algo del lugar como para moverse y por ende quedamos en que un path estaba compuesto de segmentos, pero a la vez un segmento podría estar compuesto de paths, donde esos paths se generan como son líneas entre esas curvaturas.
+
+24:03 - Speaker-1
+Eso vamos a tener que pulirlo porque esa ida y vuelta nos va a traer problemas.
+
+24:10 - Speaker-2
+Eso es lo que yo también estoy pensando ahorita, de que sí es algo que nos podría traer problemas, en cuyo caso preferiría decir que el path está lleno de segmentos y hasta ahí no más.
+
+24:26 - Speaker-1
+Sí, creo. Vamos a dejar eso como conclusión.
+
+24:30 - Unidentified Speaker
+Un path es un conjunto de segmentos.
+
+24:33 - Speaker-1
+Los segmentos son la línea imaginaria entre una trench y otra trench o entre una... Perdón, no es una trench y otra trench. Un segmento es una línea Un manjol y otro manjol, o entre un manjol y una mufa, y un poste. Y un poste, correcto, porque es entre las estructuras, o entre un poste y un poste. Entre un poste y un poste. Y así tenemos que el conjunto de segmentos es un paz, ¿no? Define un paz. Ya dijimos que, de la misma forma que los trenches tienen subtrenches, ductos o subductos, Los cables también. Los cables, el trazado aéreo más que el cable, el cable es lo que va dentro del ducto o del subducto. El trazado aéreo tiene niveles. Correcto, sí. Y dentro de esos niveles se pueden tener cables. De la misma forma que el trazado aéreo tiene niveles, el trench también tiene niveles, que lo ves en la grafía que hicimos. Entonces para poder hacer una operación de splice en un trazado aéreo hace falta un componente, una subestructura que hemos llamado mufa y para hacer un splice dentro de un trazado trench debemos tener un componente que es un ODF de función que debe estar dentro de una cámara o de algún receptáculo, de algún tipo de subestructura que permita colocar dentro el ODF.
+
+27:12 - Unidentified Speaker
+Sí, correcto.
+
+27:18 - Speaker-1
+Un segmento puede contener uno o más par. Sí. Ya dijimos que hay una equivalencia entre los elementos de red activos con los ODFs, que son elementos de red pasivos. Ambos, el ODF y un roteador, que es un elemento de red activo, ambos se colocan dentro de un contenedor, que puede ser un gabinete o un Ambos, el roteador y el ODF, tienen slots. Ambos reciben tarjetas donde el nombre alias de la tarjeta de ODF se denomina bandeja y ambos tienen puertos que están en sus bandejas o en la denominación del elemento redactivo de los circuit pack, las tarjetas de circuito impreso. Creo que esto lo puedo describir yo, porque lo que era más confuso era la parte de afuera.
+
+29:11 - Speaker-2
+La parte de la infraestructura, claro. De ahí después también hablamos que los cables tenían sus tubos y recién en los tubos estábamos empezando a hablar de los pelos.
+
+29:24 - Speaker-1
+Esa era otra cosa que no había mencionado. Claro, claro. Los cables, entonces, sí, claro. El crench entonces es un tipo de estructura.
+
+29:40 - Unidentified Speaker
+Correcto.
+
+29:41 - Speaker-1
+El pole o el poste es un tipo de estructura. Correcto, sí. La mufa es un elemento que es al mismo tiempo contenedor, subestructura dentro del... Perdón, es contenedor dentro de una subestructura, dentro de una estructura y esa estructura se llama manhole. Correcto, sí, tal cual. Entonces, para decirlo nuevamente, tenemos manhole que contiene a un contenedor. El contenedor contiene a un ODF. Esos tres elementos que tienen relación de contención uno con otro. De nuevo, manhole contiene a contenedor, contenedor contiene a ODF. Todo eso es para trazado trench. Correcto. Todo eso está representado o tiene su equivalencia en una mufa. Correcto, sí.
+
+31:10 - Unidentified Speaker
+Sí.
+
+31:10 - Speaker-2
+Y ahí hablamos de los tipos de ODF.
+
+31:18 - Speaker-1
+Sí, hablamos de los tipos de ODF. Tenemos tipos de ODF que son ODF reflejo, como acabas de decir. Splice reflejo o splice reflex. O solamente splice. Reflejo, splice reflex o splice reflejo y splice. Ahí están los tres tipos. Entonces, el pol, al ser un tipo de estructura, está perteneciendo a un site, que es el que tiene el atributo de coordenadas.
+
+32:19 - Speaker-2
+tiene atributo de coordenadas.
+
+32:21 - Speaker-1
+El pol a su vez tiene un tipo de subestructura que denominamos pol-holder y esa subestructura pol-holder está asignada a un nivel de la estructura que es pol. Correcto, sí. Y eso tiene equivalencia directa con la estructura de tipo building que tiene nivel y que dentro de los niveles tiene subestructuras y una de esas subestructuras es una sala. Correcto. O sala o un room. Las operaciones de fusión pueden usarse para vincular un pelo de fibra que pertenece a un cable con otro pelo de fibra que pertenece a otro cable o una operación de fusión puede utilizarse para vincular un pelo de fibra que pertenece a un cable con un pic tail y esta fusión de cable con pic tail dará por resultado o se conoce como la terminación de un pelo de fibra, que significa que el pelo de fibra está listo para ser conectado y aprovechado por algún equipo de telecomunicaciones. Como DF o un equipo activo. Sí que lo habíamos trabajado, ¿no? Sí, lo habíamos trabajado. Ahí viene el tema de que todo esto que estamos diciendo en esa época tenemos que escribirlo nosotros. Y ahora tenemos la ayuda de que todo lo que estamos diciendo se va a transcribir y le podemos mandar encima a una IA que va a extraer un modelado de datos de esto y conviértelo en una Query Mongo y mete. Y rompe todo.
+
+34:34 - Speaker-2
+Tienes que probarlo.
+
+34:35 - Speaker-1
+Es la paja mental. Esto es uno. Creo que hacemos una pasada rápida del otro que teníamos por acá.
+
+34:44 - Speaker-2
+Ya creo que ese es el fundamental. Sí, ese es el fundamental. En realidad ya hablamos de todos los objetos en el modelo que yo tengo también.
+
+34:56 - Speaker-1
+De todos. Ok, entonces aquí había una cosa que era evolución. Aquí pusimos las definiciones.
+
+35:17 - Speaker-2
+Sí, segmento contratrazado. Y aquí es donde ya empieza la fumadita.
+
+35:23 - Unidentified Speaker
+Segmento contratrazado.
+
+35:24 - Speaker-2
+En realidad el trazado simplemente era lo que nosotros utilizamos una API para que nos haga un trazado así ficticio. Pero obviamente el trazado con coordenadas reales es importantísimo. Es el flujo por donde va todo el... Todo el cable.
+
+35:44 - Speaker-1
+Claro, claro, claro. El trazado es lo que equivale a los sides. El trazado es lo que tiene las coordenadas. Exacto.
+
+35:53 - Speaker-2
+El segmento solamente es una línea imaginaria. Exacto. Y el trazado, si tiene curvatura, se va a ver como una línea curva en el mapa.
+
+36:04 - Speaker-1
+Entonces decíamos que el trazado era equivalente a los, digamos, los trace points. Serían equivalentes a un site. Sí, correcto. Es donde van a estar las coordenadas.
+
+36:19 - Unidentified Speaker
+Exacto.
+
+36:19 - Speaker-2
+Con la forma que tengan.
+
+36:23 - Speaker-1
+La concatenación, la unión de las coordenadas nos va a dar la forma del trazado. Que no necesariamente será una línea recta.
+
+36:37 - Speaker-2
+Exacto, no necesariamente es una línea recta.
+
+36:42 - Unidentified Speaker
+Listo.
+
+36:42 - Speaker-1
+Acá teníamos definiciones, espacios físicos, espacios físicos entre dos puntos, partes de una colección de segmentos. Un segmento es una línea imaginaria entre dos estructuras. Un span tiene muchos paths y podríamos hablar de un subpath que tiene que ver con el uso de las diferentes subestructuras dentro de una trench, es decir, dentro de los diferentes ductos, subductos que están dentro de una trench. O de los diferentes niveles de aéreo que están asociados a la estructura de tipo pole.
+
+37:39 - Unidentified Speaker
+Sí, correcto.
+
+38:01 - Speaker-1
+más rápido. Ese ya era el caso que habíamos conversado para los roteadores pero en este caso el el efeo link es la abstracción de todos los componentes que hay para poder establecer para poder terminar pelos de fibra óptica en un sitio sí entonces el efeo link Si queremos decir que tenemos un FO link entre el punto A y el punto B, significa que en el punto A hemos terminado un pelo de fibra óptica que está dentro de un cable, que está dentro de un subtucto, que está dentro de un tucto, que está dentro de una trench, que hace un splice en una cámara. Ese splice con esa cámara, el cable que sale de la cámara, hace un recorrido por un trazado aéreo. Que tiene niveles y que en el trazado aéreo desciende a una recámara que tiene un contenedor, que tiene una bandeja, que tiene un puerto, donde se posiciona un pigtail que ha terminado el cable que llegó al sitio B.
+
+39:48 - Unidentified Speaker
+Sí, correcto.
+
+39:49 - Speaker-1
+Todo ese conjunto de elementos mencionados es lo que se abstrae por medio del objeto FOLink. FOLink, correcto. Sí. Espérate que me toca bajar otra vez. Ajá. El FOLink está a base de Strand. Tenemos un FOPath que está implementado por medio de cable. ¿Sí? ¿De acuerdo?
+
+40:39 - Speaker-2
+Sí, claro.
+
+41:12 - Speaker-1
+Claro. Para poder, como ya dijimos, el reflejo significa posicionar, conectar dos pelos de shader óptica terminados por medio de pigtail. Correcto. Posicionar, conectar, puede ser conectar un patch cord que es fundamentalmente un cable de fibra óptica que ya ha sido terminado, que tiene dos conectores en su punta, pero cuya característica es que es una versión reducida de un cable, es un sol uno o dos pelos. Un padcord tiene uno o tiene dos pelos y siempre tiene un conector en sus Un cable de fibra óptica contiene pelos, y esos pelos no tienen conectores en sus puntas. Para poder dotarlos de conectores, cada uno de los pelos de ese cable deben tener una operación de fusión, splice, para poder vincularlos a un pigtail. Correcto. Donde el pigtail tiene precisamente el conector que termina o que se usa para terminar ese pelo de fibra óptica que está dentro del Ahora, aquí habíamos hecho hasta la iconografía. Un segmento. Mira lo que está representando acá. Habíamos dicho que el segmento es entre dos, la línea imaginaria, entre dos estructuras, sea el manjol lo manjó el poste. Y acá veo que hemos dibujado que un segmento es...
+
+43:57 - Unidentified Speaker
+en nada.
+
+44:00 - Speaker-1
+¿De cuál hablas? Acá. ¿Por qué el segmento, dijimos, que hay una línea marginal entre dos estructuras? ¿Sí? No.
+
+44:20 - Speaker-2
+Recuerdo, a ver, si hablas por los graficitos chiquitos que has colocado ahí, es porque luego después dijimos que en realidad obviamente habían muchos más, solamente que estábamos simplificándolo para...
+
+44:40 - Speaker-1
+Claro, es cierto que había varios segmentos de Bocates del Pato.
+
+44:44 - Speaker-2
+Sí, claro, porque un cable de 12 kilómetros está loco, ¿no?
+
+44:48 - Unidentified Speaker
+Es demasiado.
+
+44:49 - Speaker-2
+Entonces, por eso era. Y ahí sí hay un segmento porque, a pesar de que es el sitio, recuerda que para que salga de ese sitio tiene que pasar por la cabina, ¿no?
+
+45:02 - Speaker-1
+Ajá, por la cabina que es la cámara, ¿no?
+
+45:05 - Speaker-2
+La cámara, exacto. Entonces ahí hay un segmento.
+
+45:09 - Speaker-1
+El manhole, cuando es tendido trench o la mufa cuando es tendido aéreo.
+
+45:17 - Unidentified Speaker
+Sí, correcto.
+
+45:44 - Speaker-1
+Aquí introdujimos otro concepto que es el segmento de sección y el segmento lo pusimos encima de la sección. Dijimos que la sección es entre subestructuras. Correcto. La sección es entre subestructuras y el segmento es entre estructuras.
+
+46:16 - Unidentified Speaker
+Sí, correcto.
+
+46:18 - Speaker-1
+Y aún más, la sección es entre subestructuras de determinado tipo. Una sección es entre una mufa y una cámara, por ejemplo. No puede haber, no ver una sección si es que no hay una mufa en uno de los extremos. De la misma forma que no puede haber una sección si en la cámara no hay una bandeja de fusión. Entonces las secciones se dan entre dos mufas o entre mufa y cámara tiene un ODF de fusión, donde la cámara tiene un ODF que tiene bandejas para fusión, por eso es un ODF de fusión, o entre dos cámaras donde cada una de esas cámaras tiene un ODF. Aquí lo trabajamos más aún. Los segmentos son una colección de secciones, de la misma forma que un path es una colección de segmentos. Los segmentos pueden estar compuestos de uno o más cables. Cuando una sección tiene de un cable se hace implícita una operación de splice. Correcto. Un segmento tiene atributos que son tipo, que puede ser aéreo, ducto o trench. O submarino, un segmento tiene una cantidad de niveles y un segmento tiene un número de nivel o un identificador de nivel. Un segmento también tiene es el que tiene los niveles. Los niveles se dan a nivel segmento o los niveles se dan a nivel Pregunta para Diego. Dijimos que la sección es entre dos, no, el segmento Segmento es entre dos estructuras. Segmento es entre dos estructuras.
+
+50:14 - Unidentified Speaker
+Correctamos.
+
+50:15 - Speaker-2
+Sí, entre dos estructuras.
+
+50:32 - Speaker-1
+Claro, la sección es entre subestructuras y el segmento es entre estructuras. Correcto, sí. OK, está bien. Y aquí nos salió que teníamos que ampliar el modelo de datos del manager porque teníamos un sitio que el sitio iba a tener ahora un tipo donde teníamos el o teníamos el tipo ghost, y el tipo ghost es justamente para posicionar las cámaras o manhole, o para posicionar los poles.
+
+51:36 - Speaker-2
+Sí, exacto, exacto, exacto. Donde ya no tiene directamente un nombre, simplemente está ahí por ser una coronada geográfica.
+
+51:46 - Speaker-1
+También, claro, porque algunos postes tienen un número. Tienen números a veces sí luego tenemos sitio el sitio tiene estructuras para las estructuras teníamos dicho hay buildings hay manholes hay poles y también van a haber estructuras ghost luego las estructuras pueden ser room housing shelter.
+
+52:20 - Unidentified Speaker
+Correcto.
+
+52:21 - Speaker-1
+Las subestructuras tienen contenedores y esos contenedores vienen a los elementos de red donde ODF es un tipo de elemento de red. Sí. Correcto y como ya dijimos tenemos un caso especial que es la mufa que es al mismo tiempo es network element que es contenedor y que es subestructura. Es una suma, ¿no? Es una combinación.
+
+53:19 - Unidentified Speaker
+Sí, claro.
+
+53:21 - Speaker-1
+Es una combinación que podríamos definirla mejor, porque al final decimos que hay una subestructura. Ghost también.
+
+53:38 - Speaker-2
+Sí, claro.
+
+53:40 - Speaker-1
+Donde podemos poner a un contenedor que es Mufa.
+
+53:47 - Unidentified Speaker
+Exacto.
+
+53:48 - Speaker-2
+Donde adentro se le coloca su ODF.
+
+53:54 - Speaker-1
+Y podemos ampliar acá a un contenedor que es Mufa. Y esa Mufa Ah, dijimos que el enclosure podía ser la mufa, ¿no? Claro. De eso sí, no me acuerdo, pero supongo, puede ser. Uno de estos enclosures, Colocale ahí mufa para que esté...
+
+54:34 - Speaker-2
+Ah, ya, claro. Tienes mucha razón, sí.
+
+54:40 - Speaker-1
+Tiene mufa. Sí, correcto. Creo que con la dejamos ahí, con eso tengo para trabajar. Dale, dale.
+
+54:55 - Speaker-2
+Igual, si alguna observación, si tu guía tiene alguna sugerencia, no te olvides de pasarla también porque...
+
+55:03 - Speaker-1
+Lo voy a transcribir todo y voy a hacerme el curioso de postearlo en YouTube. En YouTube.
+
+55:10 - Speaker-2
+En GitHub.
+
+55:11 - Speaker-2
+Ya, ok, está bien, dale.
+
+55:13 - Speaker-1
+Ya, está bien, dale. Lo máximo, Diego, buen cliente, muchas gracias.
+
+55:17 - Speaker-2
+Está bien, muchas gracias, chao chao.
+
+55:20 - Unidentified Speaker
+Chao chao.
