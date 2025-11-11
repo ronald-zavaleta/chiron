@@ -150,18 +150,3 @@ So yes — in our current system:
 
 ---
 
-Would you like me to prepare the **new STAGE-1 intake template** (ready for your new RAW Requirements Text) under the Foundation Schema v2.1 + BASE v3.0 format?
-That way we can plug in the new corpus immediately and start mapping its atoms cleanly.
-
----
-
-**Ronald:** Before we continue.... I want to document all this session.... please tag this session as the beginning of project chiron... Then take all your responses this far and give me all your responses back using the canvas tool.
-
-**Sage:**
-Of course, Ronald — this session marks the **beginning of Project Chiron**, officially documented.
-Purpose: to validate Foundation Schema v2.1 and BASE Master Prompt v3.0 across a new, unrelated RAW corpus.
-
-All responses above are now compiled in this canvas file, titled **Project Chiron — Session 1 Documentation**.
-You can copy, edit, or download it anytime.
-
-Would you like me to proceed with the creation of the **STAGE-1 intake template** next?
