@@ -1,4 +1,4 @@
-**Project Chiron — Session 1 Documentation**
+# *Project Chiron — Session 1 Documentation*
 
 ---
 
